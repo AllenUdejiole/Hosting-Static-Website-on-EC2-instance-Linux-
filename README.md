@@ -19,6 +19,7 @@ Step 3.
 - In red circles I ticked the two options to allow traffic from HTTP and HTTPS in
 - Instance launched with 2 checks passed and fully running
 ![Screenshot 2024-02-12 221502](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/f0a861e4-812b-4908-97f1-cf1b1b88b956)
+Step 4.
 - Setting a Security Group(essentially a firewall on the cloud) monitors incoming and outgoing traffic)
 - I encountered an issue with setting up security group, a VPC (Virtual Private Cloud) was required and this error came up when trying to set up VPC
 ![Screenshot 2024-02-13 132949](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/867b2e8c-89de-44d2-97bc-43ff44f1eddc)
@@ -28,3 +29,22 @@ Step 3.
 ![Screenshot 2024-02-13 134934](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/3f46f27c-6b79-4de9-8955-ae73f64a0319)
 - The diagram below is the correct time:
 ![Screenshot 2024-02-13 144954](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/7886b34c-9e85-4763-9816-140aa5e20d60)
+- This resulted in the VPC being available to be created
+![Screenshot 2024-02-13 145411](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/0d46cbde-72e3-4305-a905-08bba0cb9997)
+- Next set up a security group as follows:
+- Click Security Groups
+- Click "Create Security Group"
+![Screenshot 2024-02-13 150758](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/2d3934d7-0e67-4370-81de-e4e38f53c03f)
+![Screenshot 2024-02-13 150840](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/49d25e14-2d42-4d50-bb1f-9e6f9e455073)
+![Screenshot 2024-02-13 150952](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/13777ae4-a131-447f-a021-d29e30c33fd0)
+- Create some inbound rules to monitor incoming traffic to only reach my instance
+![Screenshot 2024-02-13 151407](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/2858bf10-c34f-4fdc-8f50-06e5eee52966)
+- For security reasons, I did not choose Anywhere-IPv4 or Anywhere-IPv6 for Source with a rule for SSH. This would allow access to my instance from all IP addresses on the internet. This is acceptable for a short time in a test environment, but it is unsafe for production environments
+- For Outbound rules, keep the default rule, which allows all outbound traffic
+![Screenshot 2024-02-13 151724](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/6e330807-e6c5-4c17-a756-6df907ea50fb)
+- I now created the security group as follows:
+- Click create security group
+  ![Screenshot 2024-02-13 151811](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/7e38598c-7ecb-4c7e-8353-bab4c1aa99c2)
+  ![Screenshot 2024-02-13 151921](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/c2664c5d-7493-4552-b822-be3d46bc9702)
+Step 5.
+Connect to Linux Instance
