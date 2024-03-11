@@ -53,5 +53,10 @@ Connect to Linux Instance
 - The Purpose of this allows us to be able to connect to our instance and send files to and from the local computer and the instance
 - The Instance ID
 ![Screenshot 2024-02-14 142136](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/dca0def3-ae6e-4333-b6d6-c12098360e75)
+- If no Public IPv4 Dns name is showing, ensure the instance status is running
 ![Screenshot 2024-02-14 145016](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/f37e41d6-9272-4d65-9269-68583bf8b55c)
+- Now I connected the instance
+![Screenshot 2024-03-11 142758](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/59440a22-2e03-4b6a-895b-4a20052bf2e6)
+- I used the EC2 Instance Connect Method to connect the instance
+![Screenshot 2024-02-14 145440](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/17166f9b-1a88-4972-ac6d-e25cc0d32ef7)
 
