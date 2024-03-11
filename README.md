@@ -103,4 +103,46 @@ Step 5.
 ![Screenshot 2024-02-19 131810](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/59ef1684-97bd-4961-ac64-45e407b4b4a0)
 ![Screenshot 2024-02-19 131825](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/fb66ecc7-f22b-44db-b2cb-bc89d03b44dd)
 - To confirm it has been unzipped we used the “ls -lrt” command again
+![Screenshot 2024-02-19 131933](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/e0cc37eb-2ead-4f97-b2f6-51a395cd1945)
+- Circled in red, this indicates it ha successfully been unzipped
+- I will now go into the carvilla file to showcase what is in the file
+- First I will bring the common directory “cd carvilla” followed by listing what is in the file “ls -lrt” as follows:
+![Screenshot 2024-02-19 133216](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/953589d5-eff9-496d-a83a-e9a187ffe916)
+- Now I need to move these files listed in the carvilla-v1.0 file into a different directory to be able to change this server into a web server
+- The command to do this is “mv * /var/www/html/”
+![Screenshot 2024-02-19 133753](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/43cb828b-13bb-4d6e-983d-0aa95c5fbd59)
+- To make sure they have been moved successfully, I checked the directory using “cd /var/www/html/”, followed by “ls -lrt”:
+![Screenshot 2024-02-19 134115](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/7ba54b3f-38a3-4565-b807-005219783e1e)
+- This is how we host a server on an EC2 instance
+- To make sure everything is correctly working, we will copy the Public IPv4 address from the instance details as follows:
+- Click Instance ID
+- Copy IPv4 Address
+![Screenshot 2024-02-19 134418](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/191b6f0c-61f6-424b-868b-3a3d208988b5)
+![Screenshot 2024-02-19 134531](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/e588f79a-6774-4535-a292-c990002f6a08)
+- Once the IP has been copied, we paste it into a new web page
+![Screenshot 2024-02-19 134728](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/8ae8d5be-6ee2-4478-ad50-f18e936b80fc)
+- I came across an issue as it stated the page could not be reached
+![Screenshot 2024-02-19 134814](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/53200578-1711-4574-b699-94e30f38a941)
+- This may be due to the firewall settings on AWS. Firewall is the security group in AWS that monitors incoming and outgoing traffic. So I went into the security group to see how I could rectify the issue
+![Screenshot 2024-02-19 135010](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/5d9f8bd4-7ed7-45e8-baf4-e44db45d2e54)
+- I clicked on the security groups link as follows:
+![Screenshot 2024-02-19 135107](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/ef7e5aa8-bf56-4337-b96b-a368d48cf357)
+- This opened a new tab
+![Screenshot 2024-02-19 135223](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/6efd5c84-907d-4d16-b2c7-a8319714fa22)
+- It shows that I have the correct inbound rules for allowing HTTPS, HTTP and SSH traffic
+- I next tried to see if I had activated the server by checking the status of it on the Linux command line
+- To check the status I used the previous command “systemctl status httpd”:
+![Screenshot 2024-02-19 140053](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/e3fec689-6ad0-4199-8135-4155bf05eede)
+- This shows that it is indeed inactive and I needed to enable this using the command “systemctl enable httpd”:
+![Screenshot 2024-02-19 140253](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/b99c5c72-c18d-4f76-bcfc-227bdb9da2fc)
+- Now that I have enabled it, I now need to start it and the command for that is similar to the above command to enable it which is “systemctl start httpd”:
+![Screenshot 2024-02-19 140435](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/bb1505fc-abc2-4f18-92f6-b9352e7968ab)
+- Now to check it is up and running I will check the status of it by typing the command “systemctl status httpd”:
+![Screenshot 2024-02-19 140609](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/5ce7e1c8-6cab-4c7a-a516-028e19fa73d4)
+- It is now shown that the server is correctly running(active)
+- I will now go back to the web browser with the public IP and refresh the page.
+![Screenshot 2024-02-19 140818](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/0114e65f-41dc-415c-b092-198487e34819)
+![Screenshot 2024-02-19 140827](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/2ee2d927-b5c5-4ac6-b052-78ba40360a54)
+- The web page with the Public IP has successfully presented the html file with the website
+- To Conclude, these are the steps I used to host a Web-server or web application on the AWS EC2 Instance
 
