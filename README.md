@@ -1,4 +1,4 @@
-# Hosting-Static-Website-on-EC2-instance-Linux-
+-# Hosting-Static-Website-on-EC2-instance-Linux-
 Step 1. 
 - Create Free Tier AWS Account
 - Click on EC2 in AWS Console Page and "Launch Instance"
@@ -59,4 +59,21 @@ Connect to Linux Instance
 ![Screenshot 2024-03-11 142758](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/59440a22-2e03-4b6a-895b-4a20052bf2e6)
 - I used the EC2 Instance Connect Method to connect the instance
 ![Screenshot 2024-02-14 145440](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/17166f9b-1a88-4972-ac6d-e25cc0d32ef7)
+- This is the conclusion from connecting the instance
+![Screenshot 2024-02-14 145610](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/3ca4a555-9024-4d87-a7e7-cde6844fbd67)
+- Initially, when creating the EC2 instance, the key pair was stored in my local computer which is important to locate as it allows a user to be identified to have access to the instance
+Step 5.
+- I installed an Apache web server with PHP and MySQL support on my Amazon Linux instance (sometimes called a LAMP web server or LAMP stack). I will use this server to host a static website that reads and writes information to a database
+- Before proceeding I had to make sure I had the correct security group inbound configurations which entailed SSH (port 22), HTTP (port 80), and HTTPS (port 443) connections. This controlled traffic coming into the instance
+![Screenshot 2024-02-16 000120](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/65adc236-520e-4909-ad9b-99d0041e1ede)
+- Once I configured the security group, I connected to my instance and did a quick software update to make sure I had the correct packages, latest security updates, and bug fixes. To do this I typed in “sudo yum update -y” in the Linux interface beside [ec2-user ~]$.
+- I came across an issue with the instance not connecting with this error message
+![Screenshot 2024-02-16 010401](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/4579c462-3c47-4361-960e-1ea76650c776)
+- I resolved this by configuring the security group settings and changing the source of SSH from “My IP” to “anywhere IPv4” which resolved this issue allowing a connection to the instance
+![Screenshot 2024-02-16 010317](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/189cf42e-e388-4eec-b7ea-35ad156ae182)
+- Now continuing with the update as stated before the issue. This was the conclusion from the update
+![Screenshot 2024-02-16 010802](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/204d72cc-b66a-451e-9e2d-065f2e5e35f8)
+- Now that the instance is current, I installed the Apache web server, MySQL, and PHP software packages
+![Screenshot 2024-02-16 125441](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/9e04cd4e-710c-4434-9ffa-1f0c885d3491)
+
 
