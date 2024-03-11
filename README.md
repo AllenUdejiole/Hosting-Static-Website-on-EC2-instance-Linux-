@@ -75,5 +75,32 @@ Step 5.
 ![Screenshot 2024-02-16 010802](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/204d72cc-b66a-451e-9e2d-065f2e5e35f8)
 - Now that the instance is current, I installed the Apache web server, MySQL, and PHP software packages
 ![Screenshot 2024-02-16 125441](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/9e04cd4e-710c-4434-9ffa-1f0c885d3491)
-
+- An error message appeared after this step as it seems this version I tried to install was incompatible. I also double checked to see if I am using the correct Instance type which was Amazon Linux 2023 with by typing in “cat /etc/system-release”
+![Screenshot 2024-02-16 125630](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/4c004993-6de5-40da-839d-d52e5b70d52b)
+- To solve this issue, I needed to first uninstall the packages i had installed for bugs and fixes. This means I downgraded the version of Apache, PHP and MySQL that i downloaded to an older more compatible version. I instead opted to download a Httpd server
+- To do this I first cleared the page using the “clear” command
+![Screenshot 2024-02-16 132218](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/f2a48e5f-a755-4ca6-b2ec-31d85d1b3d75)
+- I next changed myself to a root user with this command “sudo su -”
+![Screenshot 2024-02-16 132340](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/753c561d-d547-4f61-a701-44addadec1a4)
+- I checked once again that I was up to date with the system using the command “yum update -y”
+![Screenshot 2024-02-16 132502](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/c11c0e54-5376-454c-9946-1a4b7237bb1b)
+- I then cleared the screen again for neatness and installed the httpd server using the command “yum install -y httpd”
+![Screenshot 2024-02-16 133036](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/3aece122-81b6-4c7d-9cd3-b52e90dffeeb)
+- The above image shows I already have installed the httpd server
+- Now I will check the status of the httpd server by using the command “systemctl status httpd
+![Screenshot 2024-02-16 135833](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/e2122a54-674a-4432-a3ce-c1477d013d59)
+- This status of the server is currently inactive (dead). I will change that status later
+- Now I will create a directory called “temp” using “mk dir” command, to get into that folder I will use the command “cd temp/”. The purpose of this is where we will store our website
+![Screenshot 2024-02-16 140356](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/05005853-cdfc-4695-86e2-e06d20a5083a)
+- Now that we are in the directory that we will host out website on, I will now get the file link for the website and move it to the directory “temp” using this command “wget” followed by the link of the website as follows:
+![Screenshot 2024-02-19 130809](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/4f6e3728-c99e-43ab-9130-674b5d482068)
+- This was the outcome of using the “wget” followed by the link
+![Screenshot 2024-02-19 131320](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/cc7cedc5-223e-43b9-b49c-17fb5031c35d)
+- To make sure the file was available I used the command “ls -lrt” and this was the outcome:
+![Screenshot 2024-02-19 131508](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/9b2071e0-4f4a-4b90-b3f2-1a67d610414a)
+- Now I needed to unzip the file as it was zipped. To do this in the Linux command line I used the command “unzip carvilla.zip” and clicked the enter key and this was the outcome:
+![Screenshot 2024-02-19 131732](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/384ca419-2411-41a7-9284-010d93c72272)
+![Screenshot 2024-02-19 131810](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/59ef1684-97bd-4961-ac64-45e407b4b4a0)
+![Screenshot 2024-02-19 131825](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/fb66ecc7-f22b-44db-b2cb-bc89d03b44dd)
+- To confirm it has been unzipped we used the “ls -lrt” command again
 
