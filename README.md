@@ -48,3 +48,10 @@ Step 4.
   ![Screenshot 2024-02-13 151921](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/c2664c5d-7493-4552-b822-be3d46bc9702)
 Step 5.
 Connect to Linux Instance
+- To prepare to connect to an instance, I got the following information from the Amazon EC2 console:
+- The Public IPv4 DNS. I will use this IP to access the EC2 instance
+- The Purpose of this allows us to be able to connect to our instance and send files to and from the local computer and the instance
+- The Instance ID
+![Screenshot 2024-02-14 142136](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/dca0def3-ae6e-4333-b6d6-c12098360e75)
+![Screenshot 2024-02-14 145016](https://github.com/AllenUdejiole/Hosting-Static-Website-on-EC2-instance-Linux-/assets/160611100/f37e41d6-9272-4d65-9269-68583bf8b55c)
+
